@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- linked css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <title>Pet Device</title>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="nav1">
+                <ul>
+                    <li class="outfit">Shop </li>
+                    <li class="outfit">Our Story </i></li>
+                    <li class="outfit">Science </i></li>
+                    <li class="outfit">Results</li>
+                </ul>
+            </div>
+            <div class="nav2">
+                <ul>
+                    <li class="outfit">ENG</li>
+                    <li class="outfit">USD </i></li>
+                   <i class="fa-solid fa-cart-shopping" class="cart-icon" id="cartIcon"></i>
+                </ul>
+                
+            </div>
+        </div>
+       
+    </header>
+    <main>
+        <div class="container">
+            <!-- Left Column: Image -->
+            <div class="left">
+              <img src="images/main.png" class="main-image">
+              <div class="images">
+                <img src="images/img1.png">
+                <img src="images/img2.jpg">
+                <img src="images/img3.png">
+                <img src="images/img4.png">
+              </div>
+            </div>
+          
+            <!-- Right Column: Details -->
+            <div class="right">
+              <div class="badge outfit">Best Seller</div>
+              <div class="rating outfit"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <span class="gray">
+              <span class="bold">  4.9</span> <u>(1021 reviews)</u>
+              </span> </div>
+              <div class="title outfit">Helio Pet Device™</div>
+             
+          
+              <div class="testimonial outfit">
+                <div class="pimg">
+                    <img src="images/profile.jpg">
+                    <div class="content">
+                        <p>Linda S.</p>
+                        <p>1 year ago</p>
+                    </div>
+                </div>
+
+                “We are BOTH so THANKFUL! I purchased this for my 12 year old Lab mix as he's got mobility issues with the back legs. It's been 3 weeks and already a difference!”
+              </div>
+          
+              <ul class="features outfit gray">
+                <li><img src="images/ic_outline-check.svg" >Reduce aches & pains with 5-minute sessions.</li>
+                <hr>
+                <li> <img src="images/ic_outline-check.svg" >Cold Laser Therapy helps with Pain, Inflammation & more.</li> <hr>
+                <li> <img src="images/ic_outline-check.svg" >Professional Grade LLLT with 5 Laser Diodes.</li>
+              </ul>
+          
+              <div class="price outfit">
+                <span class="old-price">$369.00</span>
+                <span class="new-price" id="unit-price">$249.00</span>
+              </div>
+          
+              <div class="cart outfit">
+                <button class="add-to-cart" id="add-to-cart">Add to Cart</button>
+                <div class="quantity">
+                  <button>-</button>
+                  <span class="one">1</span>
+                  <button>+</button>
+                </div>
+              </div>
+          <div class="cards">
+            <img src="images/Amex.png">
+            <img src="images/Visa.png" alt="">
+            <img src="images/Mastercard.png" alt="">
+            <img src="images/PayPal.png" alt="">
+            <img src="images/Discover.png" alt="">
+            <img src="images/Venmo.png" alt="">
+          </div>
+              <div class="footer-note outfit">
+                <div class="guarantee">
+                    <img src="images/lucide_shield-check.png" alt="" srcset="">  <span class="blue">30-day money back </span>  guarantee
+                </div>
+ 
+ <div class="guarantee">
+    <img src="images/carbon_delivery-parcel.png" alt="" srcset="">  Expected <span class="blue">delivery in 2–4</span>business days
+ </div>
+               
+              </div>
+            </div>
+          </div>
+          
+    </main>
+   
+
+
+    <!-- cart section -->
+
+<div class="cart-drawer outfit" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="close-btn" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="cart-content">
+    <div class="card-left">
+<div class="ptotal">
+      <p>Product</p>
+    </div>
+    <img src="images/main.png" class="pImg">
+    <p>Helio Pet Device™</p>
+    <p>Price: $<span id="drawer-unit-price">249.00</span></p>
+    <div class="qDel">
+<div class="quantity-controls">
+      <button id="decrease">-</button>
+      <span id="quantity">1</span>
+      <button id="increase">+</button>
+      
+    </div>
+    <div id="delete">   <i class="fa-solid fa-trash"></i></div>
+ 
+    </div>
+    </div>
+    
+    
+    <!-- card right -->
+     <div class="card-right">
+ <p>Total: $<span class="price-cart" id="total-price"></span></p>
+     </div>
+     
+  </div>
+</div>
+
+<div class="backdrop" id="backdrop"></div>
+
+<script>
+  const addToCartBtn = document.getElementById('add-to-cart');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const closeCartBtn = document.getElementById('closeCart');
+  const backdrop = document.getElementById('backdrop');
+  const quantityDisplay = document.getElementById('quantity');
+  const totalPriceDisplay = document.getElementById('total-price');
+  const drawerUnitPrice = document.getElementById('drawer-unit-price');
+  const cartIcon = document.getElementById('cartIcon');
+
+
+  let quantity = 1;
+  const unitPrice = 249.00;
+
+  function updatePrice() {
+    totalPriceDisplay.textContent = unitPrice * quantity;
+    quantityDisplay.textContent = quantity;
+  }
+
+  document.getElementById('increase').addEventListener('click', () => {
+     if (quantity < 10) {
+      quantity++;
+      updatePrice();
+    }
+  });
+
+  document.getElementById('decrease').addEventListener('click', () => {
+    if (quantity > 1) {
+      quantity--;
+      updatePrice();
+    }
+  });
+
+  addToCartBtn.addEventListener('click', () => {
+    cartDrawer.classList.add('open');
+    backdrop.classList.add('show');
+    quantity = 1;
+    updatePrice();
+  });
+
+  closeCartBtn.addEventListener('click', () => {
+    cartDrawer.classList.remove('open');
+    backdrop.classList.remove('show');
+  });
+
+  backdrop.addEventListener('click', () => {
+    cartDrawer.classList.remove('open');
+    backdrop.classList.remove('show');
+  });
+</script>
+</body>
+</html>
