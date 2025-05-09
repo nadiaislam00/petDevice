@@ -275,7 +275,13 @@ cartIcon.addEventListener('click', () => {
 Delete.addEventListener('click', () => {
   localStorage.removeItem('cart');
   document.getElementById('cartContent').innerHTML = '<p>Your cart is empty.</p>';
+
+  const checkoutSection = document.querySelector('.cart-checkout');
+  if (checkoutSection) {
+    checkoutSection.remove();
+  }
 });
+
 
 
 </script>
