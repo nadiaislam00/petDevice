@@ -310,9 +310,7 @@ justify-content: center;
 align-items: center;
 
 }
-.bigContent h1{
 
-}
 .bigImage{
   width: 50%;
   padding: 20px;
@@ -382,6 +380,14 @@ height: 50%;
     .badge{
         display: none;
     }
+    .bigBanner{
+      display: flex;
+      flex-direction: column;
+    }
+    .bigContent h1{
+font-size: 34px;
+
+}
 .left{
 width: 80%;
     margin: 0 auto;
@@ -390,7 +396,13 @@ width: 80%;
     justify-content: center;
     gap: 5px;
 }
+.bigBanner .bigContent{
+width: 100%;
+padding: 10px;
+justify-content: center;
+align-items: center;
 
+}
     .main-image {
         width: 100%;
       }
@@ -470,4 +482,38 @@ width: 80%;
     .testimonial{
         background-color: white;
     }
+    .p1{
+  margin-left: 10px;
+  font-size: 14px;
+   margin-bottom: 30px;
+}
+.p2{
+  margin-left: 2px;
+   margin-bottom: 10px;
+}
+.p3-cont{
+ margin-left: 75px;
+ position: absolute;
+ font-size: 14px;
+}
+.p3Img{
+  width: 50px;
+  height: 50px;
+}
+.p3-img{
+  position: relative;
+  right: 335px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+}
+.p2-cont{
+  margin-left: 20px;
+  font-size: 14px;
+}
+.bigImage{
+  width: 80%;
+  padding: 20px;
+  position: relative;
+}
   }
