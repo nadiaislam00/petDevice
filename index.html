@@ -121,7 +121,7 @@
     <h3>Your Cart</h3>
     <button class="close-btn" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
   </div>
-  <div class="cart-content">
+  <div class="cart-content show" id="cartContent">
     <div class="card-left">
 <div class="ptotal">
       <p>Product</p>
@@ -136,7 +136,7 @@
       <button id="increase">+</button>
       
     </div>
-    <div id="delete">   <i class="fa-solid fa-trash"></i></div>
+    <div id="delete" class="delete">   <i class="fa-solid fa-trash"></i></div>
  
     </div>
     </div>
@@ -153,6 +153,17 @@
 <div class="backdrop" id="backdrop"></div>
 
 <script>
+  window.addEventListener('DOMContentLoaded', () => {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) {
+    const { quantity: savedQuantity } = JSON.parse(savedCart);
+    quantity = savedQuantity || 1;
+    updatePrice();
+    cartDrawer.classList.add('open');
+    backdrop.classList.add('show');
+  }
+});
+
   const addToCartBtn = document.getElementById('add-to-cart');
   const cartDrawer = document.getElementById('cartDrawer');
   const closeCartBtn = document.getElementById('closeCart');
@@ -161,15 +172,25 @@
   const totalPriceDisplay = document.getElementById('total-price');
   const drawerUnitPrice = document.getElementById('drawer-unit-price');
   const cartIcon = document.getElementById('cartIcon');
+  const cardContent = document.getElementById('cardContent');
+  const Delete = document.getElementById('delete');
 
 
   let quantity = 1;
   const unitPrice = 249.00;
 
   function updatePrice() {
-    totalPriceDisplay.textContent = unitPrice * quantity;
-    quantityDisplay.textContent = quantity;
-  }
+  totalPriceDisplay.textContent = unitPrice * quantity;
+  quantityDisplay.textContent = quantity;
+
+  // Save to localStorage
+  const cartData = {
+    quantity: quantity,
+    unitPrice: unitPrice
+  };
+  localStorage.setItem('cart', JSON.stringify(cartData));
+}
+
 
   document.getElementById('increase').addEventListener('click', () => {
      if (quantity < 10) {
@@ -201,6 +222,11 @@
     cartDrawer.classList.remove('open');
     backdrop.classList.remove('show');
   });
+Delete.addEventListener('click', () => {
+  localStorage.removeItem('cart');
+  document.getElementById('cartContent').innerHTML = '<p>Your cart is empty.</p>';
+});
+
 </script>
 </body>
 </html>

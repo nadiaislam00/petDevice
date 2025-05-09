@@ -171,6 +171,9 @@ header ul i{
     align-items: center;
     gap: 10px;
   }
+  #delete{
+    cursor: pointer;
+  }
   .one{
     font-size: 30px;
     color: rgba(20, 27, 77, 1);
@@ -234,6 +237,9 @@ header ul i{
       display: flex;
       justify-content: space-between;
     }
+    .cart-content.show{
+      display: flex;
+    }
 .pImg{
   height: 130px;
   width: 130px;
@@ -279,6 +285,7 @@ header ul i{
     .backdrop.show {
       display: block;
     }
+    
     #decrease{
       border: none;
       background: white;
