@@ -191,7 +191,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (savedCart) {
     const { quantity: savedQuantity } = JSON.parse(savedCart);
     quantity = savedQuantity || 1;
-    updatePrice(); // Load quantity & total price silently
+    updatePrice(); 
   }
 });
 
@@ -215,8 +215,6 @@ window.addEventListener('DOMContentLoaded', () => {
 function updatePrice() {
   totalPriceDisplay.textContent = (unitPrice * quantity).toFixed(2);
   quantityDisplay.textContent = quantity;
-
-  // Save to localStorage
   const cartData = {
     quantity: quantity,
     unitPrice: unitPrice
@@ -243,13 +241,13 @@ function updatePrice() {
 addToCartBtn.addEventListener('click', () => {
   cartDrawer.classList.add('open');
   backdrop.classList.add('show');
-  updatePrice(); // ensure correct quantity/price on open
+  updatePrice(); 
 });
 
 cartIcon.addEventListener('click', () => {
   cartDrawer.classList.add('open');
   backdrop.classList.add('show');
-  updatePrice(); // reflect correct values
+  updatePrice(); 
 });
 
 
