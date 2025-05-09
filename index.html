@@ -157,9 +157,17 @@
   <div class="bigContent">
  <h1>Professional Grade, Patented Design.
 </h1>
-  <p>It’s required to have a strong enough output power of 3-10 Joules per cm2 with correct wavelengths (660nm + 850nm).</p>
-  <p>The treatment head is 340% bigger so it can finish a treatment in 3 minutes, vs 10-20 minutes.</p>
-  <p>Has 3 Modes of Power to accommodate to any area. It also uses wavelengths 660nm and 850nm.</p>
+  <p class="p1">It’s required to have a strong enough output power of 3-10 Joules per cm2 with correct wavelengths (660nm + 850nm).</p>
+  <div class="p2-cont flex">
+    <img src="images/1.svg" alt="" srcset="">
+    <p class="p2">The treatment head is 340% bigger so it can finish a treatment in 3 minutes, vs 10-20 minutes.</p>
+  </div>
+  <div class="p3-cont flex">
+    <img src="images/Ellipse 1108.png" class="p3Img">
+    <p class="p3">Has 3 Modes of Power to accommodate to any area. <br> It also uses wavelengths 660nm and 850nm.</p>
+    <img src="images/2.png" class="p3-img">
+  </div>
+  
   </div>
  <div class="bigImage">
   <img src="images/light.png" alt="" srcset="">
@@ -178,16 +186,16 @@
  </footer>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
   const savedCart = localStorage.getItem('cart');
   if (savedCart) {
     const { quantity: savedQuantity } = JSON.parse(savedCart);
     quantity = savedQuantity || 1;
-    updatePrice();
-    cartDrawer.classList.add('open');
-    backdrop.classList.add('show');
+    updatePrice(); // Load quantity & total price silently
   }
 });
+
+
 
   const addToCartBtn = document.getElementById('add-to-cart');
   const cartDrawer = document.getElementById('cartDrawer');
@@ -204,17 +212,18 @@
   let quantity = 1;
   const unitPrice = 249.00;
 
-  function updatePrice() {
-  totalPriceDisplay.textContent = unitPrice * quantity;
+function updatePrice() {
+  totalPriceDisplay.textContent = (unitPrice * quantity).toFixed(2);
   quantityDisplay.textContent = quantity;
 
-
+  // Save to localStorage
   const cartData = {
     quantity: quantity,
     unitPrice: unitPrice
   };
   localStorage.setItem('cart', JSON.stringify(cartData));
 }
+
 
 
   document.getElementById('increase').addEventListener('click', () => {
@@ -231,12 +240,19 @@
     }
   });
 
-  addToCartBtn.addEventListener('click', () => {
-    cartDrawer.classList.add('open');
-    backdrop.classList.add('show');
-    quantity = 1;
-    updatePrice();
-  });
+addToCartBtn.addEventListener('click', () => {
+  cartDrawer.classList.add('open');
+  backdrop.classList.add('show');
+  updatePrice(); // ensure correct quantity/price on open
+});
+
+cartIcon.addEventListener('click', () => {
+  cartDrawer.classList.add('open');
+  backdrop.classList.add('show');
+  updatePrice(); // reflect correct values
+});
+
+
 
   closeCartBtn.addEventListener('click', () => {
     cartDrawer.classList.remove('open');
@@ -251,6 +267,7 @@ Delete.addEventListener('click', () => {
   localStorage.removeItem('cart');
   document.getElementById('cartContent').innerHTML = '<p>Your cart is empty.</p>';
 });
+
 
 </script>
 </body>
