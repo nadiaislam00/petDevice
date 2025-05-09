@@ -297,7 +297,17 @@ header ul i{
 
 .bigBanner{
   background-image: url(images/Background.jpg);
-
+display: flex;
+}
+.bigBanner .bigContent{
+width: 50%;
+}
+.bigImage{
+  width: 50%;
+}
+.bigImage img{
+  width: 100%;
+  height: 50%;
 }
 .bigBanner h1{
   font-weight: 500;
