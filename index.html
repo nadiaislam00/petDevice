@@ -152,6 +152,13 @@
 
 <div class="backdrop" id="backdrop"></div>
 
+<!-- footer -->
+ <footer>
+  <div class="footer-img">
+    <img src="images/footer.png">
+  </div>
+ </footer>
+
 <script>
   window.addEventListener('DOMContentLoaded', () => {
   const savedCart = localStorage.getItem('cart');
@@ -183,7 +190,7 @@
   totalPriceDisplay.textContent = unitPrice * quantity;
   quantityDisplay.textContent = quantity;
 
-  // Save to localStorage
+
   const cartData = {
     quantity: quantity,
     unitPrice: unitPrice
