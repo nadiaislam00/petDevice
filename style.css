@@ -295,6 +295,16 @@ header ul i{
       background: white;
     }
 
+.bigBanner{
+  background-image: url(images/Background.jpg);
+
+}
+.bigBanner h1{
+  font-weight: 500;
+  font-size: 60px;
+  color: rgba(255, 255, 255, 1);
+}
+
 footer{
 margin-top: 20px;
 
