@@ -148,6 +148,15 @@
      </div>
      
   </div>
+  <!-- Checkout Section -->
+<div class="cart-checkout outfit">
+  <div class="checkout-total">
+    <p><strong>Estimated total</strong></p>
+    <p>$<span id="estimated-total">249.00</span></p>
+  </div>
+  <button class="checkout-button">Checkout</button>
+</div>
+
 </div>
 
 <div class="backdrop" id="backdrop"></div>
@@ -215,6 +224,8 @@ window.addEventListener('DOMContentLoaded', () => {
 function updatePrice() {
   totalPriceDisplay.textContent = (unitPrice * quantity).toFixed(2);
   quantityDisplay.textContent = quantity;
+  document.getElementById('estimated-total').textContent = (unitPrice * quantity).toFixed(2);
+
   const cartData = {
     quantity: quantity,
     unitPrice: unitPrice

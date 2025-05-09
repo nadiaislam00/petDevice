@@ -151,6 +151,30 @@ header ul i{
     border-radius: 5px;
     cursor: pointer;
   }
+.cart-checkout {
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.checkout-button {
+  width: 100%;
+  background-color: #fcef3d;
+  color: #000;
+  padding: 12px;
+  font-weight: bold;
+ border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
   .quantity {
     display: flex;
@@ -173,6 +197,7 @@ header ul i{
   }
   #delete{
     cursor: pointer;
+    color: #bc5308;
   }
   .one{
     font-size: 30px;
